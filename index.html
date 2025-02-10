@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Check Input</h1>
+        <input type="text" id="userInput" placeholder="Enter something...">
+        <button onclick="checkInput()">Check</button>
+
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        // 已知列表
+        const knownList = ["apple", "banana", "cherry", "date", "elderberry"];
+
+        // 检查输入的函数
+        function checkInput() {
+            // 获取用户输入
+            const userInput = document.getElementById('userInput').value.trim();
+
+            // 获取用于显示消息的元素
+            const messageElement = document.getElementById('message');
+
+            // 检查输入是否在已知列表中
+            if (knownList.includes(userInput)) {
+                messageElement.textContent = `'${userInput}' is in the list!`;
+                messageElement.style.color = "green";
+            } else {
+                messageElement.textContent = `'${userInput}' is NOT in the list.`;
+                messageElement.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
