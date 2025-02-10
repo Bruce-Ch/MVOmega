@@ -44,7 +44,7 @@
 <body>
     <div class="container">
         <h1>Check Input</h1>
-        <input type="text" id="userInput" placeholder="Enter something...">
+        <input type="text" id="userInput" placeholder="Enter something..." onkeydown="if(event.key === 'Enter') checkInput()">
         <button onclick="checkInput()">Check</button>
 
         <div id="message" class="message"></div>
@@ -64,10 +64,10 @@
 
             // 检查输入是否在已知列表中
             if (knownList.includes(userInput)) {
-                messageElement.textContent = `'${userInput}' is in the list!`;
+                messageElement.textContent = `"${userInput}" is in the list!`;
                 messageElement.style.color = "green";
             } else {
-                messageElement.textContent = `'${userInput}' is NOT in the list.`;
+                messageElement.textContent = `"${userInput}" is NOT in the list.`;
                 messageElement.style.color = "red";
             }
         }
